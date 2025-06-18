@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modern Restore - Loja Gamer</title>
+<style>
+  /* Reset and base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fcd5d8;
+    color: #000;
+    line-height: 1.5;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Variables */
+  :root {
+    --red: #d3121a;
+    --black: #000000;
+    --white: #fffafa;
+    --text-dark: #111;
+  }
+  /* Container and layout */
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* HEADER */
+  header {
+    background-color: var(--black);
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 1440px;
+    margin: 0 auto 0.5rem;
+  }
+
+  .logo {
+    font-weight: 900;
+    font-size: 1.75rem;
+    color: var(--red);
+    font-style: italic;
+  }
+
+  .search-form {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  .search-button {
+    position: relative;
+    right: 2.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 1.25rem;
+  }
+
+  .user-area {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .user-icon {
+    background: #999;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Navigation */
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+  }
+
+  .nav-item {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--white);
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+  }
+  .nav-item:hover {
+    color: var(--red);
+  }
+
+  .menu-icon {
+    display: none;
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  /* Banner Section */
+  .banner {
+    position: relative;
+    background: linear-gradient(to top, #0b0000, #bf0b0c);
+    color: var(--white);
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1440px;
+    margin: 0 auto 2rem auto;
+  }
+
+  .banner-left, .banner-center, .banner-right {
+    flex: 1 1 300px;
+    min-width: 280px;
+  }
+
+  .banner-left img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .banner-center {
+    color: var(--white);
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 1px 1px 6px #7f0003;
+    line-height: 1.1;
+  }
+  .banner-center .subtitle {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--red);
+    margin-bottom: 0.4rem;
+    letter-spacing: 1.2px;
+  }
+  .banner-center .title {
+    font-size: 3.5rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.6rem;
+  }
+  .banner-center .pro-text {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+  .banner-center .pro-text .highlight-red {
+    color: var(--red);
+  }
+
+  .banner-right {
+    text-align: right;
+    font-weight: 700;
+  }
+  .banner-right .performance {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  .banner-right .xlarge-b {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--red);
+  }
+  .banner-right .btn-watch {
+    background-color: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+  }
+  .banner-right .btn-watch:hover {
+    background-color: #aa0a10;
+  }
+
+  /* Main categories section */
+  .categories {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    padding: 2rem 1rem;
+    max-width: 1440px;
+    margin: 0 auto 3rem auto;
+  }
+  .category {
+    background-color: var(--white);
+    max-width: 290px;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1.5px solid #222;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.25s ease;
+  }
+  .category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+  }
+  .category img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+  .category-info {
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .category-info .highlight-red {
+    color: var(--red);
+    font-weight: 900;
+  }
+  .category-info small {
+    font-weight: 400;
+    color: #555;
+    display: block;
+    font-size: 0.65rem;
+    margin-top: 0.15rem;
+    white-space: normal;
+  }
+
+  /* Footer placeholder */
+  footer {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Responsive */
+
+  @media (max-width: 767px) {
+    nav {
+      display: none;
+    }
+    .menu-icon {
+      display: inline-block;
+    }
+    .header-top {
+      justify-content: space-between;
+    }
+    .search-form {
+      margin: 0 0.5rem;
+      max-width: 70%;
+    }
+    .banner {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+    .banner-right {
+      text-align: center;
+    }
+    .categories {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      max-width: 100%;
+    }
+    .category {
+      width: 100%;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+
+</style>
+<!-- Google Material Icons CDN -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+
+<header>
+  <div class="header-top container">
+    <div class="logo" aria-label="Modern Restore logo">Modern Restore</div>
+    <form class="search-form" role="search" aria-label="Pesquisa do produto">
+      <input
+        type="search"
+        class="search-input"
+        placeholder="Pesquise o seu produto"
+        aria-label="Pesquisar produto"
+      />
+      <button type="submit" class="search-button" aria-label="Buscar">
+        <span class="material-icons" aria-hidden="true">search</span>
+      </button>
+    </form>
+    <div class="user-area" aria-label="Área de usuário">
+      <div class="user-icon" aria-hidden="true">
+        <span class="material-icons">account_circle</span>
+      </div>
+      <a href="#" style="color: white;">Olá, Entre ou Cadastre-se</a>
+      <a href="#" aria-label="Favoritos" title="Favoritos" style="color:white;">
+        <span class="material-icons">favorite_border</span>
+      </a>
+      <a href="#" aria-label="Carrinho" title="Carrinho" style="color:white;">
+        <span class="material-icons">shopping_cart</span>
+      </a>
+    </div>
+    <button class="menu-icon" aria-label="Menu" onclick="toggleMenu()">
+      <span class="material-icons">menu</span>
+    </button>
+  </div>
+  <nav id="main-nav" class="container" aria-label="Menu de navegação principal">
+    <div class="nav-item" tabindex="0">Departamentos</div>
+    <div class="nav-item" tabindex="0">Promoções</div>
+    <div class="nav-item" tabindex="0">PC Gamer</div>
+    <div class="nav-item" tabindex="0">Kit Upgrade</div>
+    <div class="nav-item" tabindex="0"><u>Hardware</u></div>
+    <div class="nav-item" tabindex="0">Notebooks</div>
+    <div class="nav-item" tabindex="0">Monitores</div>
+    <div class="nav-item" tabindex="0">Monte seu PC</div>
+    <div class="nav-item" tabindex="0"><u>Atendimento</u></div>
+  </nav>
+</header>
+
+<main>
+  <section class="banner" aria-label="Promoção da placa de vídeo GeForce RTX Gigabyte">
+    <div class="banner-left" aria-hidden="true">
+      <img
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0d1d2b67-f794-4081-aa55-44bfe05f0c2d.png"
+        loading="lazy"
+        alt="Placa de vídeo GeForce RTX Gigabyte modelo RTX 5090 em destaque"
+      />
+    </div>
+    <div class="banner-center">
+      <div class="subtitle" aria-label="Série e modelo">GeForce RTX Série 50</div>
+      <div class="title" aria-label="Marca principal">GIGABYTE™</div>
+      <div class="pro-text" aria-label="Texto de destaque">Jogue <span class="highlight-red">como um pro</span></div>
+    </div>
+    <div class="banner-right" aria-label="Vantagens da placa de vídeo">
+      <div class="performance">
+        <span class="xlarge-b" aria-label="4 vezes">4X</span> mais desempenho com o DLSS 3
+      </div>
+      <div class="performance" style="margin-bottom: 1rem;">
+        <span class="xlarge-b" aria-label="2 vezes">2X</span> mais performance com Ray Tracing
+      </div>
+      <button class="btn-watch" aria-label="Assistir vídeo da placa">
+        <span class="material-icons">play_arrow</span>
+        Clique Aqui
+      </button>
+    </div>
+  </section>
+
+  <section class="categories" aria-label="Categorias principais para montagem de PC">
+    <div class="category" tabindex="0" aria-label="Monte o seu PC custom do seu jeito">
+      <img
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e02fee75-0a49-4f91-a5fb-7106a8f5e7ab.png"
+        alt="Imagem de computador customizado com iluminação RGB"
+        loading="lazy"
+      />
+      <div class="category-info">
+        Monte o seu PC<br /><span class="highlight-red">Custom</span><small>do seu jeito</small>
+      </div>
+    </div>
+    <div class="category" tabindex="0" aria-label="Monte o seu PC gamer do seu jeito">
+      <img
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ac03f308-9b8b-4a7d-88bc-97f692ee3d2d.png"
+        alt="Imagem de PC gamer branco com controle de jogos"
+        loading="lazy"
+      />
+      <div class="category-info">
+        Monte o seu PC<br /><span class="highlight-red">Gamer</span><small>do seu jeito</small>
+      </div>
+    </div>
+    <div class="category" tabindex="0" aria-label="Monte seu PC para jogos MOBA">
+      <img
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/375a5126-20dd-4318-a963-91923685081c.png"
+        alt="Imagem de computador para jogo MOBA com mouse e teclado"
+        loading="lazy"
+      />
+      <div class="category-info">
+        Monte o seu PC<br /><span class="highlight-red">Moba</span>
+      </div>
+    </div>
+    <div class="category" tabindex="0" aria-label="Monte seu PC para uso Home">
+      <img
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b5633b53-ed54-43de-b6be-fed66106ffe2.png"
+        alt="Imagem de computador básico para uso Home"
+        loading="lazy"
+      />
+      <div class="category-info">
+        Monte seu PC<br /><span class="highlight-red">Home</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Modern Restore - Todos os direitos reservados.
+</footer>
+
+<script>
+  // Mobile menu toggle
+  function toggleMenu() {
+    const nav = document.getElementById('main-nav');
+    if (nav.style.display === 'flex') {
+      nav.style.display = 'none';
+    } else {
+      nav.style.display = 'flex';
+      nav.style.flexDirection = 'column';
+      nav.style.backgroundColor = '#000';
+      nav.style.padding = '1rem';
+      nav.style.gap = '1rem';
+    }
+  }
+
+  // Close menu on window resize if desktop
+  window.addEventListener("resize", () => {
+    if(window.innerWidth > 767) {
+      const nav = document.getElementById('main-nav');
+      nav.style.display = 'flex';
+      nav.style.flexDirection = 'row';
+      nav.style.backgroundColor = 'transparent';
+      nav.style.padding = '0.75rem 0';
+      nav.style.gap = '1.5rem';
+    }
+  });
+</script>
+</body>
+</html>
+
